@@ -1,0 +1,14 @@
+{
+  "name": "nodetesting",
+  "version": "1.0.0",
+  "description": "Repo for learning nodejs and practicing nodejs basics. Current sources include w3schools and netninja nodejs youtube series.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "lodash": "^4.17.21"
+  }
+}
