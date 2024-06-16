@@ -1,7 +1,9 @@
 const express = require("express");
 const morgan = require("morgan");
+
 const mongoose = require("mongoose");
 const Blog = require("./models/blog");
+
 const blogRoutes = require("./routes/blogRoutes")
 
 // connect to mongodb with mongoose

@@ -1,9 +1,14 @@
 const express = require("express");
 const Blog = require("../models/blog");
+const blogController = require("./controllers/blogController");
 
-const router = express.Router()
+const router = express.Router();
 
 // mongoose and mongo sandbox routes
+
+// with controller
+// router.get("/", blogController.blog_index);
+
 router.get("/add-blog", async (req, res) => {
     // req.body
     const blog = new Blog({
