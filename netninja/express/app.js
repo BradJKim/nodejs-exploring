@@ -2,6 +2,7 @@ const express = require("express");
 const morgan = require("morgan");
 const mongoose = require("mongoose");
 const Blog = require("./models/blog");
+const blogRoutes = require("./routes/blogRoutes")
 
 // connect to mongodb with mongoose
 // listen for requests after connecting
@@ -35,42 +36,11 @@ app.use((req, res, next) => {
 });
 
 app.use(express.static("public"));
+app.use(express.urlencoded({ extended: true })); // req object w/ req.body
 app.use(morgan("dev"));
 
-// mongoose and mongo sandbox routes
-app.get("/add-blog", async (req, res) => {
-    const blog = new Blog({
-        title: "new blog",
-        snippet: "asdfasdfasdf",
-    });
-
-    try {
-        const result = await blog.save();
-        res.send(result);
-    } catch (err) {
-        console.log(err);
-    }
-});
-
-app.get("/all-blogs", async (req, res) => {
-    try {
-        const result = await Blog.find();
-        res.send(result);
-    } catch (err) {
-        console.log(err);
-    }
-});
-
-app.get("/single-blog", async (req, res) => {
-    try {
-        const result = await Blog.findById("666e561ab23e8a133632f621");
-        res.send(result);
-    } catch (err) {
-        console.log(err);
-    }
-});
-
-// routing
+// blog routes
+app.use("/blogs", blogRoutes)
 
 app.get("/", async (req, res) => {
     //res.sendFile("./views/index.html", { root: __dirname });
