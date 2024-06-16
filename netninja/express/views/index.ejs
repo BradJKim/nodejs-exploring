@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+
+        <!-- <%- include('./partials/nav.ejs') %>  // to include partials in views -->
+
+        <% const name = "mario" %>
+
+        <h1>Home</h1>
+        <h2>This is the homepage</h2>
+        <p><%= name %></p>
+        <p><%= title %></p>
+
+        <% if (blogs.length > 0 ) { %>
+            <% blogs.forEach(blog => { %>
+                <h3><%= blog.title %></h3>
+                <p><%= blog.snippet %></p>
+            <% }) %>
+        <% } else { %>
+            <h3>No current blogs to show</h3>
+        <% } %>
+    </body>
+</html>
